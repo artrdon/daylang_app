@@ -1,7 +1,9 @@
+import 'package:DayLang/elems/vozmozno.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import '../const_values/http_link.dart';
+import '../elems/vozmozno.dart';
 
 
 class Offer extends StatefulWidget implements PreferredSizeWidget {
@@ -44,10 +46,8 @@ class _OfferState extends State<Offer> {
         });
         return;
       }
-print(1);
       setState(() {
         data = response.data;
-        print(2);
         isLoading = false;
       });
 
@@ -55,7 +55,6 @@ print(1);
       setState(() {
         error = e.toString();
         isLoading = false;
-        print(3);
       });
     }
   }
@@ -167,6 +166,7 @@ print(1);
                 )             
               ),
               Container(
+                width: screenWidth - screenWidth * 0.03809523809523,
                 height: screenWidth * 0.171428,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white, width: 1.0, style: BorderStyle.solid),
@@ -195,12 +195,48 @@ print(1);
                               Image.asset('src/static/img/confirmed.png', width: screenWidth * 0.0476190476,)
                             ],
                           ),
-                          Container(
-                            child: Text(data[0]['about_myself'], style: TextStyle(color: Colors.white),),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              child: Text(data[0]['about_myself'], style: TextStyle(color: Colors.white), ),
+                            ),
                           ),
                         ],
                       ),
-                    )
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: screenWidth - screenWidth * 0.03809523809523,
+                margin: EdgeInsets.only(top: screenWidth * 0.0761904),
+                child: Row(
+                  children: [
+                    Text('Reviews', style: TextStyle(fontSize: screenWidth * 0.057142857, color: Colors.white),),
+                    Padding(
+                      padding: EdgeInsets.only(left: screenWidth * 0.01),
+                      child: Image.asset('src/static/img/11.png', width: screenWidth * 0.0571428, ),
+                    ),
+                    Text(data[0]['review'], style: TextStyle(fontSize: screenWidth * 0.057142857, color: Colors.white),),
+                  ],
+                ),
+              ),
+              Container(
+                width: screenWidth - screenWidth * 0.03809523809523,
+                height: 100,
+                decoration: BoxDecoration(//                                                reviews
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 0.3809),
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text('Возможно вам подойдут', style: TextStyle(fontSize: screenWidth * 0.0571428, color: Colors.white),),
+                    ),
+                    Vozmozno(),
                   ],
                 ),
               ),
