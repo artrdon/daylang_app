@@ -65,7 +65,6 @@ class _FindedState extends State<Finded> {
 
   @override
   Widget build(BuildContext context) {
-    final args = widget.language ?? ModalRoute.of(context)!.settings.arguments as String?;   
     final screenWidth = MediaQuery.of(context).size.width;
 
     if (isLoading) {

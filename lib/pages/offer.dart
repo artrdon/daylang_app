@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import '../const_values/http_link.dart';
-import '../elems/vozmozno.dart';
 
 
 class Offer extends StatefulWidget implements PreferredSizeWidget {
@@ -112,7 +111,6 @@ class _OfferState extends State<Offer> {
                   children: [
                     Container(
                       width: screenWidth - screenWidth * 0.03809523809523 - screenWidth * 0.14,
-                      height: 70,
                       child: Text(data[0]['name'], style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.06095238), softWrap: true),
                     ),
                     IconButton(
@@ -140,20 +138,20 @@ class _OfferState extends State<Offer> {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.circle, size: 8), // bullet point
-                      title: Text('Есть микрофон? ${data[0]['microphone'].toString()}', style: TextStyle(color: Colors.white)),
+                      leading: Icon(Icons.circle, size: screenWidth * 0.03), // bullet point
+                      title: Text('Есть микрофон? ${data[0]['microphone'].toString()}', style: TextStyle(fontSize: screenWidth * 0.0380952, color: Colors.white)),
                     ),
                     ListTile(
-                      leading: Icon(Icons.circle, size: 8), // bullet point
-                      title: Text('Цели: ${data[0]['target'].toString()}', style: TextStyle(color: Colors.white)),
+                      leading: Icon(Icons.circle, size: screenWidth * 0.03), // bullet point
+                      title: Text('Цели: ${data[0]['target'].toString()}', style: TextStyle(fontSize: screenWidth * 0.0380952, color: Colors.white)),
                     ),
                     ListTile(
-                      leading: Icon(Icons.circle, size: 8), // bullet point
-                      title: Text('Возраст: ${data[0]['age'].toString()}', style: TextStyle(color: Colors.white)),
+                      leading: Icon(Icons.circle, size: screenWidth * 0.03), // bullet point
+                      title: Text('Возраст: ${data[0]['age'].toString()}', style: TextStyle(fontSize: screenWidth * 0.0380952, color: Colors.white)),
                     ),
                     ListTile(
-                      leading: Icon(Icons.circle, size: 8), // bullet point
-                      title: Text('Формат: ${data[0]['format'].toString()}', style: TextStyle(color: Colors.white)),
+                      leading: Icon(Icons.circle, size: screenWidth * 0.03), // bullet point
+                      title: Text('Формат: ${data[0]['format'].toString()}', style: TextStyle(fontSize: screenWidth * 0.0380952, color: Colors.white)),
                     ),
                   ],
                 ),
@@ -178,7 +176,7 @@ class _OfferState extends State<Offer> {
                       padding: EdgeInsets.only(left: screenWidth * 0.0380),
                       child: ClipOval(
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.grey,
                           ),
                           child: Image.network(data[0]['chel_photo'], width: screenWidth * 0.1333333333, height: screenWidth * 0.1333333333,),
@@ -191,14 +189,14 @@ class _OfferState extends State<Offer> {
                         children: [
                           Row(
                             children: [
-                              Text('${data[0]['first_name']} ${data[0]['last_name']}', style: TextStyle(color: Colors.white),),
+                              Text('${data[0]['first_name']} ${data[0]['last_name']}', style: TextStyle(fontSize: screenWidth * 0.0380952, color: Colors.white),),
                               Image.asset('src/static/img/confirmed.png', width: screenWidth * 0.0476190476,)
                             ],
                           ),
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Container(
-                              child: Text(data[0]['about_myself'], style: TextStyle(color: Colors.white), ),
+                              child: Text(data[0]['about_myself'], style: TextStyle(fontSize: screenWidth * 0.0380952, color: Colors.white), ),
                             ),
                           ),
                         ],
@@ -223,18 +221,61 @@ class _OfferState extends State<Offer> {
               ),
               Container(
                 width: screenWidth - screenWidth * 0.03809523809523,
-                height: 100,
-                decoration: BoxDecoration(//                                                reviews
-                  color: Colors.grey,
+                child: Column(
+                  children: [
+                    Container(
+                      height: screenWidth * 0.2,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 1.0, style: BorderStyle.solid),
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(screenWidth * 0.0952380), topRight: Radius.circular(screenWidth * 0.0952380))
+                      ),
+                    ),
+                    Container(
+                      width: screenWidth - screenWidth * 0.03809523809523,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white, width: 1.0, style: BorderStyle.solid),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                             
+                          )
+                        ],
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      customBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(screenWidth * 0.0952380), bottomRight: Radius.circular(screenWidth * 0.0952380))
+                      ),
+                      child: Container(
+                        width: screenWidth - screenWidth * 0.03809523809523,
+                        height: screenWidth * 0.2,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 1.0, style: BorderStyle.solid),
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(screenWidth * 0.0952380), bottomRight: Radius.circular(screenWidth * 0.0952380))
+                        ),
+                        child: Center(
+                          child: Text("Show more", style: TextStyle(fontSize: screenWidth * 0.0571428, color: Colors.white),),
+                        ),
+                        
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 0.3809),
+                margin: EdgeInsets.only(top: screenWidth * 0.3809),
                 child: Column(
                   children: [
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: Text('Возможно вам подойдут', style: TextStyle(fontSize: screenWidth * 0.0571428, color: Colors.white),),
+                      child: Container(
+                        margin: EdgeInsets.only(left: screenWidth * 0.0108),
+                        child: Text('Возможно вам подойдут', style: TextStyle(fontSize: screenWidth * 0.0571428, color: Colors.white),),
+                      ),
+                       
                     ),
                     Vozmozno(),
                   ],

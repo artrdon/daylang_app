@@ -85,31 +85,38 @@ class _VozmoznoState extends State<Vozmozno> {
             child: Container(
               width: screenWidth * 0.478,
               margin: EdgeInsets.all(screenWidth * 0.0108),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 52, 52, 52),
-              ),
               child: Column(
                 children: [
-                  Image.network(dataItem['photo'], height: screenWidth * 0.435,),
+                  Container(
+                    width: screenWidth * 0.478,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 52, 52, 52),
+                    ),
+                    child: Image.network(dataItem['photo'], height: screenWidth * 0.435,),
+                  ),
+                  
                   Container(
                     margin: EdgeInsets.only(left: screenWidth * 0.02),
-                    child: Text(dataItem['name'], style: TextStyle(fontSize: screenWidth * 0.05, overflow: TextOverflow.ellipsis), maxLines: 1, softWrap: false,),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(dataItem['name'], style: TextStyle(fontSize: screenWidth * 0.05, overflow: TextOverflow.ellipsis, color: Colors.white), maxLines: 1, softWrap: false,),
+                    ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: screenWidth * 0.02),
+                    margin: EdgeInsets.only(left: screenWidth * 0.02, bottom: screenWidth * 0.05, top: screenWidth * 0.04),
                     child: Row(
                       children: [
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(dataItem['price'].toString()),
+                          child: Text('${dataItem['price'].toString()} ₽', style: TextStyle(fontSize: screenWidth * 0.05, color: Colors.white, fontWeight: FontWeight.bold),),
                         ),
                         Align(
-                          alignment: Alignment.centerLeft,
+                          alignment: Alignment.centerRight,
                           child: Container(
                             child: Row(
                               children: [
                                 Image.asset('src/static/img/11.png', width: screenWidth * 0.0571428, ),
-                                Text(dataItem['review'].toString())
+                                Text(dataItem['review'].toString(), style: TextStyle(fontSize: screenWidth * 0.0571, color: Colors.white),)
                               ],
                             ),
                           ),

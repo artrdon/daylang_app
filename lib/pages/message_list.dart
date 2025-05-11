@@ -6,7 +6,7 @@ class MessageList extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    //final screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       home: Scaffold(
         body: Container(
