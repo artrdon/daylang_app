@@ -35,12 +35,7 @@ class _OfferState extends State<Offer> {
     );
     try {
       final response = await dio.get('${Http().http}/gettingoffer/${widget.username}/${widget.id}/');
-      print('lol');
-      print(response.data);
-      print(response.data[0]);
-      print('problem');
-      print(response.data[1]);
-      print('lol');
+      
 
       if (response.statusCode != 200) {
         setState(() {
