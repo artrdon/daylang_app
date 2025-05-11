@@ -1,3 +1,4 @@
+import 'package:DayLang/elems/offer_reviews.dart';
 import 'package:DayLang/elems/vozmozno.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
@@ -219,52 +220,7 @@ class _OfferState extends State<Offer> {
                   ],
                 ),
               ),
-              Container(
-                width: screenWidth - screenWidth * 0.03809523809523,
-                child: Column(
-                  children: [
-                    Container(
-                      height: screenWidth * 0.2,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 1.0, style: BorderStyle.solid),
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(screenWidth * 0.0952380), topRight: Radius.circular(screenWidth * 0.0952380))
-                      ),
-                    ),
-                    Container(
-                      width: screenWidth - screenWidth * 0.03809523809523,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 1.0, style: BorderStyle.solid),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                             
-                          )
-                        ],
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      customBorder: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(screenWidth * 0.0952380), bottomRight: Radius.circular(screenWidth * 0.0952380))
-                      ),
-                      child: Container(
-                        width: screenWidth - screenWidth * 0.03809523809523,
-                        height: screenWidth * 0.2,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1.0, style: BorderStyle.solid),
-                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(screenWidth * 0.0952380), bottomRight: Radius.circular(screenWidth * 0.0952380))
-                        ),
-                        child: Center(
-                          child: Text("Show more", style: TextStyle(fontSize: screenWidth * 0.0571428, color: Colors.white),),
-                        ),
-                        
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              OfferReviews(id: widget.id),
               Container(
                 margin: EdgeInsets.only(top: screenWidth * 0.3809),
                 child: Column(
